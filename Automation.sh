@@ -52,7 +52,6 @@ if [[ ! -f ${myhtml}/inventory.html ]]; then echo -e 'Log Type\tTime Created\tTy
 
 if [[ ! -f ${myhtml}/inventory.html ]]; then size=$(du -h /tmp/${name}-httpd-logs-${timestamp}.tar | awk '{print $1}') echo -e "httpd-logs\t${timestamp}\ttar\t${size}" | sudo tee -a $myhtml/inventory.html > /dev/null fi
 
-if ! crontab -l | grep -q "/root/Automation_Project/automation.sh"; then echo "* * * * * root /ro
 
 
 
