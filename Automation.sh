@@ -37,6 +37,19 @@ s3_bucket="upgrad-dinesh"
 aws s3 \
         cp /tmp/${name}-httpd-logs-${timestamp}.tar \
         s3://${s3_bucket}/${name}-httpd-logs-${timestamp}.tar
+#task 2 is done
+
+#now the task 3 is as follows 
+        
+        
+cd /var/www/html/ 
+myhtml="/var/www/html"
+
+if [[ ! -f ${myhtml}/inventory.html ]]; then echo -e 'Log Type\tTime Created\tType\tSize' | sudo tee $myhtml/inventory.html > /dev/null fi
+
+if [[ ! -f ${myhtml}/inventory.html ]]; then size=$(du -h /tmp/${name}-httpd-logs-${timestamp}.tar | awk '{print $1}') echo -e "httpd-logs\t${timestamp}\ttar\t${size}" | sudo tee -a $myhtml/inventory.html > /dev/null fi
+
+if ! crontab -l | grep -q "/root/Automation_Project/automation.sh"; then echo "* * * * * root /ro
 
 
 
