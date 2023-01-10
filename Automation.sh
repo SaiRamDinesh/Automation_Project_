@@ -1,3 +1,6 @@
+#to update the packages
+sudo apt-get update
+#to check apache is installed or not
 install= dpkg --get-selections apache2 | awk '{print $2}'
 if [[ install != ${install} ]];
 then
